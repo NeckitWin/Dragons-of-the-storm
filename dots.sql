@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Фев 21 2023 г., 13:41
+-- Время создания: Фев 21 2023 г., 14:17
 -- Версия сервера: 10.4.24-MariaDB
 -- Версия PHP: 8.1.6
 
@@ -197,6 +197,33 @@ CREATE TABLE `guilds_members` (
   `role` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Дамп данных таблицы `guilds_members`
+--
+
+INSERT INTO `guilds_members` (`id_guild`, `id_player`, `role`) VALUES
+(1, 14, 'ifeld0'),
+(2, 2, 'tgrishukhin1'),
+(3, 6, 'gmaciaszek2'),
+(1, 14, 'ifeld0'),
+(2, 2, 'tgrishukhin1'),
+(3, 6, 'gmaciaszek2'),
+(2, 5, 'bwellfare3'),
+(1, 15, 'bstonehouse4'),
+(2, 16, 'dwoodyer5'),
+(3, 3, 'dneligan6'),
+(2, 11, 'rbeatens7'),
+(2, 1, 'mhindmore8'),
+(1, 3, 'phazeldean9'),
+(3, 7, 'cknewstuba'),
+(3, 8, 'rdonglesb'),
+(1, 4, 'chandrikc'),
+(2, 13, 'cbarrowcloughd'),
+(3, 2, 'ystanderinge'),
+(1, 9, 'odamettif'),
+(2, 18, 'dcawg'),
+(3, 17, 'rpflegerh');
+
 -- --------------------------------------------------------
 
 --
@@ -211,6 +238,22 @@ CREATE TABLE `items` (
   `protection` int(11) DEFAULT NULL,
   `id_class` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Дамп данных таблицы `items`
+--
+
+INSERT INTO `items` (`id_item`, `name`, `type`, `damage`, `protection`, `id_class`) VALUES
+(1, 'Excalibur', 'sword', 25, 0, 4),
+(2, 'golden chestplate', 'armor', 17, 15, 3),
+(3, 'sowrd of souls', 'sword', 7, 6, 4),
+(4, 'Regin amulet', 'passive', 0, 0, 2),
+(5, 'ehassur4', 'sbrentnall4', 19, 19, 2),
+(6, 'mbernth5', 'bmarin5', 15, 7, 3),
+(7, 'mreiglar6', 'jdodell6', 22, 10, 1),
+(8, 'eworlock7', 'mclampton7', 11, 16, 1),
+(9, 'wangus8', 'dmcmichael8', 14, 16, 3),
+(10, 'ntorbard9', 'ureadshall9', 19, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -227,6 +270,22 @@ CREATE TABLE `mobs` (
   `hp` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Дамп данных таблицы `mobs`
+--
+
+INSERT INTO `mobs` (`id_mob`, `name`, `spawnpoint`, `type`, `damage`, `hp`) VALUES
+(1, 'wolf', 'ugurdug1', 'neutral', 36, 158),
+(2, 'mud monster', 'hostile', 'fgeorgius1', 9, 111),
+(3, 'sheep', 'friendly', 'rclyne2', 0, 50),
+(4, 'dog', 'neutral', 'gferrers3', 25, 100),
+(5, 'rat', 'neutral', 'bgoater4', 43, 159),
+(6, 'drunk man', 'hostile', 'apinniger5', 20, 18),
+(7, 'zombie', 'hostile', 'ecridlin6', 48, 200),
+(8, 'mum', 'gconws7', 'tmackissack7', 200, 200),
+(9, 'plafrentz8', 'dwyke8', 'ecaldero8', 47, 132),
+(10, 'tgilliard9', 'brickesies9', 'sdobney9', 84, 97);
+
 -- --------------------------------------------------------
 
 --
@@ -235,7 +294,7 @@ CREATE TABLE `mobs` (
 
 CREATE TABLE `players` (
   `id_player` int(11) NOT NULL,
-  `username` int(11) NOT NULL,
+  `username` varchar(16) NOT NULL,
   `id_balance` int(11) NOT NULL,
   `body_count` int(11) NOT NULL,
   `death_count` int(11) NOT NULL,
@@ -246,6 +305,62 @@ CREATE TABLE `players` (
   `id_server` int(11) NOT NULL,
   `id_guild` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Дамп данных таблицы `players`
+--
+
+INSERT INTO `players` (`id_player`, `username`, `id_balance`, `body_count`, `death_count`, `xp`, `hp`, `id_class`, `id_account`, `id_server`, `id_guild`) VALUES
+(1, '0', 1, 87, 73, 9790, 100, 1, 48, 2, 2),
+(2, '0', 2, 36, 23, 8865, 82, 4, 35, 1, 2),
+(3, '0', 3, 83, 45, 5428, 81, 3, 46, 1, 3),
+(4, '0', 4, 1, 58, 8895, 93, 4, 23, 2, 2),
+(5, '0', 5, 26, 65, 4606, 89, 3, 29, 1, 3),
+(6, '0', 6, 20, 84, 5973, 99, 2, 5, 2, 3),
+(7, '0', 7, 45, 48, 660, 87, 1, 1, 1, 2),
+(8, '0', 8, 20, 87, 1853, 88, 1, 18, 2, 3),
+(9, '0', 9, 96, 56, 5532, 100, 4, 32, 2, 3),
+(10, '0', 10, 3, 72, 4584, 98, 2, 23, 2, 2),
+(11, '0', 11, 16, 24, 6832, 95, 3, 37, 1, 1),
+(12, '0', 12, 92, 17, 3083, 85, 1, 40, 2, 1),
+(13, '0', 13, 48, 44, 9533, 95, 3, 19, 1, 2),
+(14, '0', 14, 14, 81, 9594, 93, 4, 14, 2, 3),
+(15, '0', 15, 35, 37, 8790, 93, 4, 16, 1, 2),
+(16, '0', 16, 66, 63, 930, 99, 4, 39, 2, 2),
+(17, '0', 17, 85, 45, 9600, 90, 4, 20, 2, 1),
+(18, '0', 18, 84, 81, 6865, 94, 3, 44, 2, 1),
+(19, '0', 19, 45, 22, 3440, 100, 3, 29, 2, 3),
+(20, '0', 20, 12, 11, 369, 100, 1, 45, 1, 1),
+(21, '0', 21, 66, 14, 9895, 87, 3, 49, 1, 1),
+(22, '0', 22, 11, 28, 9743, 88, 2, 34, 1, 1),
+(23, '0', 23, 58, 38, 9438, 90, 2, 20, 1, 1),
+(24, '0', 24, 94, 98, 4818, 90, 2, 37, 1, 1),
+(25, '0', 25, 39, 73, 4435, 83, 1, 22, 2, 2),
+(26, '0', 26, 65, 43, 2000, 96, 2, 18, 1, 2),
+(27, '0', 27, 56, 6, 7205, 91, 3, 4, 2, 1),
+(28, '0', 28, 26, 7, 4337, 98, 2, 27, 2, 2),
+(29, '0', 29, 73, 62, 113, 100, 2, 20, 1, 2),
+(30, '0', 30, 65, 63, 4770, 87, 4, 31, 1, 1),
+(31, '0', 31, 35, 43, 3648, 92, 3, 32, 2, 1),
+(32, '0', 32, 92, 54, 3692, 95, 2, 15, 1, 1),
+(33, '0', 33, 37, 65, 1543, 85, 3, 24, 2, 1),
+(34, '0', 34, 31, 82, 1674, 93, 1, 3, 1, 3),
+(35, '0', 35, 100, 24, 3425, 95, 3, 7, 2, 3),
+(36, '0', 36, 7, 11, 1515, 81, 3, 24, 2, 2),
+(37, '0', 37, 67, 64, 196, 84, 2, 41, 2, 1),
+(38, '0', 38, 74, 64, 6614, 87, 3, 9, 2, 2),
+(39, '0', 39, 18, 100, 2685, 86, 4, 20, 2, 2),
+(40, '0', 40, 58, 26, 9506, 92, 3, 46, 1, 1),
+(41, '0', 41, 29, 61, 2385, 90, 1, 32, 2, 3),
+(42, '0', 42, 86, 17, 643, 87, 3, 49, 2, 3),
+(43, '0', 43, 50, 71, 5344, 87, 2, 37, 1, 3),
+(44, '0', 44, 7, 96, 9351, 100, 3, 42, 2, 3),
+(45, '0', 45, 12, 37, 5712, 100, 1, 11, 1, 3),
+(46, '0', 46, 55, 34, 6633, 98, 2, 16, 1, 2),
+(47, '0', 47, 66, 76, 7734, 90, 2, 12, 1, 2),
+(48, '0', 48, 30, 48, 6792, 88, 1, 43, 1, 1),
+(49, '0', 49, 64, 8, 9395, 80, 2, 20, 1, 2),
+(50, '0', 50, 51, 36, 4184, 96, 4, 4, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -261,6 +376,16 @@ CREATE TABLE `player_classes` (
   `skin` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Дамп данных таблицы `player_classes`
+--
+
+INSERT INTO `player_classes` (`id_class`, `name`, `max_hp`, `skills`, `skin`) VALUES
+(1, 'warior', 160, 'fighting', 'Male'),
+(2, 'bard', 152, 'singing', 'Male'),
+(3, 'woman', 144, 'cooking', 'Female'),
+(4, 'archer', 244, 'shooting', 'Male');
+
 -- --------------------------------------------------------
 
 --
@@ -272,6 +397,62 @@ CREATE TABLE `player_items` (
   `id_item` int(11) NOT NULL,
   `count` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Дамп данных таблицы `player_items`
+--
+
+INSERT INTO `player_items` (`id_player`, `id_item`, `count`) VALUES
+(1, 6, 36),
+(2, 10, 11),
+(3, 6, 59),
+(4, 8, 35),
+(5, 8, 57),
+(6, 8, 56),
+(7, 8, 19),
+(8, 8, 23),
+(9, 10, 43),
+(10, 10, 22),
+(11, 5, 53),
+(12, 8, 56),
+(13, 1, 20),
+(14, 2, 26),
+(15, 7, 11),
+(16, 5, 18),
+(17, 5, 31),
+(18, 1, 60),
+(19, 9, 44),
+(20, 7, 30),
+(21, 5, 35),
+(22, 9, 61),
+(23, 3, 40),
+(24, 6, 26),
+(25, 9, 57),
+(26, 3, 18),
+(27, 4, 9),
+(28, 10, 40),
+(29, 2, 46),
+(30, 4, 62),
+(31, 4, 21),
+(32, 8, 53),
+(33, 8, 20),
+(34, 5, 62),
+(35, 7, 36),
+(36, 3, 20),
+(37, 5, 18),
+(38, 8, 56),
+(39, 8, 26),
+(40, 9, 38),
+(41, 4, 47),
+(42, 2, 1),
+(43, 7, 17),
+(44, 2, 23),
+(45, 10, 38),
+(46, 3, 60),
+(47, 3, 10),
+(48, 10, 46),
+(49, 10, 53),
+(50, 7, 54);
 
 -- --------------------------------------------------------
 
@@ -287,6 +468,14 @@ CREATE TABLE `servers_data` (
   `id_world` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Дамп данных таблицы `servers_data`
+--
+
+INSERT INTO `servers_data` (`id_server`, `players_count`, `server_ip`, `server_country`, `id_world`) VALUES
+(1, 1000, '57.204.135.183', 'PT', 1),
+(2, 1000, '118.110.116.149', 'BR', 4);
+
 -- --------------------------------------------------------
 
 --
@@ -298,6 +487,16 @@ CREATE TABLE `worlds` (
   `name` varchar(45) NOT NULL,
   `size` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Дамп данных таблицы `worlds`
+--
+
+INSERT INTO `worlds` (`id_world`, `name`, `size`) VALUES
+(1, 'world', 10000),
+(2, 'nerher', 10000),
+(3, 'heaven', 10000),
+(4, 'zsti', 10);
 
 --
 -- Индексы сохранённых таблиц
@@ -401,37 +600,37 @@ ALTER TABLE `guilds`
 -- AUTO_INCREMENT для таблицы `items`
 --
 ALTER TABLE `items`
-  MODIFY `id_item` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблицы `mobs`
 --
 ALTER TABLE `mobs`
-  MODIFY `id_mob` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_mob` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблицы `players`
 --
 ALTER TABLE `players`
-  MODIFY `id_player` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_player` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT для таблицы `player_classes`
 --
 ALTER TABLE `player_classes`
-  MODIFY `id_class` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_class` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `servers_data`
 --
 ALTER TABLE `servers_data`
-  MODIFY `id_server` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_server` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `worlds`
 --
 ALTER TABLE `worlds`
-  MODIFY `id_world` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_world` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
